@@ -1,0 +1,12 @@
+<form action="/signout" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Signout">
+</form>
+
+<% current_user.surveys.each do |survey| %>
+  <a class="survey" href="/users/<%= current_user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a>
+<% end %>
+
+<div id="survey">
+
+</div>

@@ -1,1 +1,6 @@
-#render welcome/login/sign-up
+<% if !logged_in? %>
+  <%= erb :_welcome %>
+
+<% else %>
+  <%= erb :_profile %>
+<% end %>

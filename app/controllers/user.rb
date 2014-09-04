@@ -4,15 +4,18 @@ end
 
 #sign up
 post '/users' do
-
+  user = User.create(email: params[:email], password: params[:password])
+  session[:user_id] = user.id
+  redirect "/"
 end
 
 #login
-post '/users/login' do
-  #authenticate and redirect appropriately
-  redirect '/user/:id'
+post '/users/:id' do
+  login
+  redirect "/"
 end
 
-
-
-#sign out --> clear session and redirect to home
+delete '/signout' do
+  session[:user_id] = nil
+  redirect '/'
+end

@@ -1,13 +1,6 @@
-get '/users/:id' do
-  @user = User.find(params[:id])
-  erb :profile
-end
-
-
 #render specific survey with partial
 get '/users/:id/surveys/:survey_id' do
-
-  erb :_survey
+  erb :_survey, layout: false
 end
 
 #create button on profile redirects to creation form
