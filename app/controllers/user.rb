@@ -1,5 +1,6 @@
 get "/" do
   erb :index
+  #redirect to profile if session has a user_id
 end
 
 #sign up

@@ -11,11 +11,18 @@ get '/users/:id/surveys/:survey_id' do
 end
 
 #create button on profile redirects to creation form
-get '/users/:id/surveys/new' do
-  @new_survey = Survey.create(user_id: params[:id])
-  erb :create
+# get '/users/:id/surveys/new' do
+#   @user = User.find(params[:id])
+#   @new_survey = Survey.create(user_id: params[:id])
+#   erb :create
+# end
+get '/create' do
+ erb :create
 end
 
+post '/create/new' do
+  p params
+end
 
 ############ SURVEY CREATION #############
 
