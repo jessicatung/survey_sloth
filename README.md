@@ -8,4 +8,4 @@
 *survey CRUD
 
 
-!["slothschema"]('slothschema.png')
+<img src="slothschema.png">
