@@ -6,7 +6,7 @@ end
 
 #render specific survey with partial
 get '/users/:id/surveys/:survey_id' do
-  erb :_survey, layout: false
+  erb :_survey, locals: {survey: Survey.find(params[:survey_id])}, layout: false
 end
 
 post '/users/:id/surveys' do

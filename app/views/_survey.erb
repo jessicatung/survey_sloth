@@ -1,0 +1,12 @@
+<div>
+	<h1><%= survey.title %></h1>
+	<% survey.questions.each do |q| %>
+	<p><% q.content %></p>
+		<% q.choices.each do |c| %>
+		
+			<button id="choice"><%= c.content %></button>
+			<!-- write JS to see which choice was chosen and update tally attribute in DB -->
+
+		<% end %>
+	<% end %>
+</div>

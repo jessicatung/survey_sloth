@@ -1,14 +1,22 @@
-<a id="create_new_survey" href="/users/<%= current_user.id %>/surveys/new"><button>Create New Survey</button></a>
 
-<form action="/signout" method="post">
-  <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Signout">
-</form>
+	<form id="signout" action="/signout" method="post">
+	  <input type="hidden" name="_method" value="delete">
+	  <input type="submit" value="Signout">
+	</form>
 
-<% current_user.surveys.each do |survey| %>
-  <a class="survey" href="/users/<%= current_user.id %>/surveys/<%= survey.id %>"><%= survey.title %></a>
-<% end %>
+<div id="profile">
+	<div id="survey_list">
+			<a id="create_new_survey" href="/users/<%= current_user.id %>/surveys/new"><button>Create New Survey</button><br></a>
+			<h4><u>Avialable Surveys</u></h4>
+			<% current_user.surveys.each do |survey| %>
+			  <a class="survey" href="/users/<%= current_user.id %>/surveys/<%= survey.id %>"><%= survey.title %><br><br></a>
+			<% end %>
+		</div>
+
+
+
+</div>	
 
 <div id="survey">
-
-</div>
+		
+	</div>
