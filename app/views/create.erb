@@ -1,7 +1,6 @@
-<div id="super_container"></div>
 <div class="survey_container">
   <form id="newsurvey" method="post" action="/users/<%= @user.id %>/surveys">
-    <input type="text" placeholder="Enter Survey Title" name="title">
+    <input id="survey_title" type="text" placeholder="Enter Survey Title" name="title">
     <input type="submit" value="Create New Survey">
   </form>
 </div>
@@ -10,3 +9,4 @@
 
 </div>
 <a href="/"><button id="complete_survey">Complete Survey</button></a>
+

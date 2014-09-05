@@ -53,41 +53,47 @@ $(document).ready(function() {
       $('#survey_display').append(server_data)
 
       clicked = false;
-      $('.questions').on('submit', function(event) {
-        event.preventDefault();
-        console.log($(this).serialize())
-        $.ajax({
-          url: $(this).attr('action'),
-          type: "post",
-          data: $(this).serialize()
-        }).done(function(s_data) {
-          if (!clicked) {
-            $('#survey_display').append(s_data);
-            clicked = true;
-          } else {
-            $('.choices').replaceWith(s_data);
-            console.log('yes')
-          }
-          $('#question_field').val("")
-
-          $('.choices').on('submit', function(event){
-            event.preventDefault();
-            console.log($(this))
-            $.ajax({
-              url: $(this).attr('action'),
-              type: 'post',
-              data: $(this).serialize()
-            }).done(function(s_d) {
-              $('#choice_field').val("");
-            })
-          })
-        })
-      })
+      $('.questions').on('submit', sendQuestion)
     })
   })
 });
 
 
+// Callback Functions
+var sendQuestion = function(event) {
+  event.preventDefault();
+  console.log($(this).serialize())
+  $.ajax({
+    url: $(this).attr('action'),
+    type: "post",
+    data: $(this).serialize()
+  }).done(function(s_data) {
+    replaceChoice(s_data)
+    $('#question_field').val("")
+    $('.choices').on('submit', sendChoice)
+  })
+}
+
+var sendChoice = function(event) {
+  event.preventDefault();
+  console.log($(this))
+  $.ajax({
+    url: $(this).attr('action'),
+    type: 'post',
+    data: $(this).serialize()
+  }).done(function(s_d) {
+    $('#choice_field').val("");
+  })
+}
+
+var replaceChoice = function(data) {
+  if (clicked) {
+    $('.choices').replaceWith(data);
+  } else {
+    $('#survey_display').append(data);
+    clicked = true;
+  }
+}
 
 
 

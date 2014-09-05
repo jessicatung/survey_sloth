@@ -1,12 +1,17 @@
 <div>
 	<h1><%= survey.title %></h1>
+  <% count = 1 %>
 	<% survey.questions.each do |q| %>
-	<p><% q.content %></p>
+
+<h3><%= " #{count}. #{q.content}" %></h3>
+  <% count += 1 %>
 		<% q.choices.each do |c| %>
-		
-			<button id="choice"><%= c.content %></button>
+
+
+			<input type="radio" name="choice" id="choice">&nbsp;&nbsp;&nbsp;&nbsp;<%= c.content %></input><br>
 			<!-- write JS to see which choice was chosen and update tally attribute in DB -->
 
 		<% end %>
 	<% end %>
+
 </div>

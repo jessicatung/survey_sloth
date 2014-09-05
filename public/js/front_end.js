@@ -19,6 +19,16 @@ $(document).ready(function() {
     $('choices').fadeOut('slow')
     $('.questions').fadeIn(500)
   })
+
+  $('#newsurvey').on('submit', function() {
+    var survey = $('#survey_title').val()
+    $('#survey_display').append('<h1>' + survey + '</h1>')
+  })
+
+  $('.questions').on('submit', function() {
+    var question = $('#question_field').val()
+    $('#survey_display').append('<h3>' + question + '</h3>')
+  })
 });
 
 
