@@ -1,0 +1,97 @@
+@background: #F9FFA5;
+@secondary: #E7DEE3;
+@border: 2px solid black;
+
+@font-face{
+	font-family: Opificio;
+	src: url('Opificio_neue-regular.ttf');
+}
+body{
+	background-color: @background;
+	font-family: Opificio;
+}
+		#survey{
+			font-family: Helvetica;
+		   float: right;
+			 background-color: @secondary;
+			 border: @border;
+			 border-radius: 10px;
+			 width: 50%;
+			 text-align: center;
+			 margin-right: 10%;
+			 margin-top: 2em;
+			 padding: 1em;
+		}
+
+#profile{
+
+	#survey_list{
+			background-color: @secondary;
+			border-radius: 10px;
+			border: @border;
+			width: 15%;
+			text-align: center;
+			padding: 1em;
+			margin: 2em 1em 1em 1em;
+			float: left;
+
+
+
+		a{
+			font-size: 16px;
+
+			button{
+				background-color: #FF8D39; 
+				border: @border;
+				border-radius: 10px;
+				padding: 1em;
+				color: black;
+			}
+		}
+	}
+}
+
+#signout{
+	float: right;
+	margin-right: 2em;
+	margin-top: 2em;
+	input{
+		border: @border;
+		border-radius: 10px;
+		background-color: @secondary;
+	}
+}
+
+
+
+#welcome {
+	background-color: @secondary;
+	border-radius: 10px;
+	border: @border;
+	margin-left: auto;
+	margin-right: auto; 
+	width: 60%;
+	text-align: center;
+	margin-top: 10%;
+	padding: 2em;
+
+	.form_container{
+
+		input{
+		  text-align: center;
+			width: 200px;
+			height: 2em;
+			border-radius: 10px;
+			border: @border;
+		}
+
+		button{
+			border-radius: 10px;
+			padding: 10px;
+			border: 1px solid black;
+			font-size: 35px;
+		}
+	}
+}
+
+
