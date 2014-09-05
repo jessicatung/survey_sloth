@@ -1,7 +1,9 @@
-<button id="new_choice">Create a new answer option</button>
-<div class="choice_container">
-  <form class="choices" action="/users/<%= current_user.id %>/surveys/<%= survey.id %>/questions/<%= question.id %>/choices">
-    <input type="text" name="choice" placeholder="Choose a choice"/>
-    <input id="submit" type="submit" value="Enter Choice">
-  </form>
+<div class="survey_container">
+	<button id="new_choice">Create a new answer option</button>
+	<div class="choice_container">
+	  <form class="choices" action="/users/<%= current_user.id %>/surveys/<%= survey.id %>/questions/<%= question.id %>/choices">
+	    <input type="text" name="choice" placeholder="Choose a choice"/>
+	    <input id="submit" type="submit" value="Enter Choice">
+	  </form>
+	</div>
 </div>
