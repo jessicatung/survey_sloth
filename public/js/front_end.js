@@ -3,7 +3,6 @@ $(document).ready(function() {
   $('#login').on("click", function(event) {
     $('#signup_form').hide();
     $('#login_form').fadeIn('slow');
-
   });
 
   $('#signup_form').hide();
@@ -15,6 +14,11 @@ $(document).ready(function() {
   $('#newsurvey').on('submit', function(event){
     $('.survey_container').fadeOut('slow')
   });
+
+  $('.new_question_button').click(function() {
+    $('choices').fadeOut('slow')
+    $('.questions').fadeIn(500)
+  })
 });
 
 
