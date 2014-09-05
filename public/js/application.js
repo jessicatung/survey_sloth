@@ -50,17 +50,30 @@ $(document).ready(function() {
       type: "post",
       data: serialize
     }).done(function(server_data) {
-      $('.survey_container').append(server_data)
+      $('#survey_display').append(server_data)
+
 
       $('.questions').on('submit', function(event) {
-        console.log($(this).serialize())
         event.preventDefault();
         $.ajax({
           url: $(this).attr('action'),
           type: "post",
-          data: $(this).serialize
+          data: $(this).serialize()
         }).done(function(s_data) {
-          $('.survey_container').append(s_data);
+          $('.question_container').fadeOut('slow');
+          $('#survey_display').append(s_data);
+
+          $('.choices').on('submit', function(event){
+            event.preventDefault();
+            console.log($(this))
+            $.ajax({
+              url: $(this).attr('action'),
+              type: 'post',
+              data: $(this).serialize()
+            }).done(function(s_d) {
+              $('.choice_container').append(s_d)
+            })
+          })
         })
       })
     })

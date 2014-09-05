@@ -11,4 +11,10 @@ $(document).ready(function() {
     $('#login_form').hide();
     $('#signup_form').fadeIn('slow');
   });
+
+  $('#newsurvey').on('submit', function(event){
+    $('.survey_container').fadeOut('slow')
+  });
 });
+
+

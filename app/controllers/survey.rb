@@ -17,16 +17,17 @@ end
 
 post '/users/:id/surveys/:survey_id/questions' do
   survey = Survey.find(params[:survey_id])
+  p params[:question]
   question = Question.create(content: params[:question])
   survey.questions << question
   erb :_choice, layout: false, locals: {survey: survey, question: question}
 end
 
-# post '/users/:id/surveys/:survey_id/questions/:question_id/choices' do
-#   survey = Survey.find(params[:survey_id])
-#   question = Question.find(params[:question_id])
-#   choice = question.choices.create(content: params[:content])
-#   erb :_choice, layout: false, locals: {survey: survey, question: question, choice: choice}
-# end
+post '/users/:id/surveys/:survey_id/questions/:question_id/choices' do
+  survey = Survey.find(params[:survey_id])
+  question = Question.find(params[:question_id])
+  choice = question.choices.create(content: params[:choice])
+  erb :_choice, layout: false, locals: {survey: survey, question: question, choice: choice}
+end
 
 
