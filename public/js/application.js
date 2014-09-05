@@ -52,16 +52,23 @@ $(document).ready(function() {
     }).done(function(server_data) {
       $('#survey_display').append(server_data)
 
-
+      clicked = false;
       $('.questions').on('submit', function(event) {
         event.preventDefault();
+        console.log($(this).serialize())
         $.ajax({
           url: $(this).attr('action'),
           type: "post",
           data: $(this).serialize()
         }).done(function(s_data) {
-          $('.question_container').fadeOut('slow');
-          $('#survey_display').append(s_data);
+          if (!clicked) {
+            $('#survey_display').append(s_data);
+            clicked = true;
+          } else {
+            $('.choices').replaceWith(s_data);
+            console.log('yes')
+          }
+          $('#question_field').val("")
 
           $('.choices').on('submit', function(event){
             event.preventDefault();
@@ -71,7 +78,7 @@ $(document).ready(function() {
               type: 'post',
               data: $(this).serialize()
             }).done(function(s_d) {
-              $('.choice_container').append(s_d)
+              $('#choice_field').val("");
             })
           })
         })

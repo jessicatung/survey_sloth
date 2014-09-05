@@ -1,7 +1,7 @@
 
 <div class="question_container">
   <form class="questions" action="/users/<%= current_user.id %>/surveys/<%= survey.id %>/questions" method="post"><br>
-    <input type="text" name="question" placeholder="enter a question"/>
+    <input id="question_field" type="text" name="question" placeholder="enter a question"/>
     <input type="submit" value="Enter Question">
   </form>
 </div>
